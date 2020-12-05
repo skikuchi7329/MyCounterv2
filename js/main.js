@@ -4,22 +4,22 @@ const counter = () => {
   const incrementBtn = document.querySelector("#increment");
 
   const increment = () => {
-    count++
-  }
+    count++;
+  };
   const render = () => {
     counterDOM.textContent = count;
-  }
+  };
   return {
     init() {
-      counterDOM.addEventListener('click', () => {
+      counterDOM.addEventListener("click", () => {
         increment();
         render();
-      })
+      });
     }
-  }
-}
+  };
+};
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const counter = Counter();
   counter.init();
-})
+});
