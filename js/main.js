@@ -1,7 +1,7 @@
 const Counter = () => {
   let count = 0;
   const counterDOM = document.querySelector("#counter");
-  const incrementBtn = document.querySelector("#increment");
+  const counterContainerElement = document.querySelector("#counter-container");
 
   const increment = () => {
     count++;
@@ -9,12 +9,19 @@ const Counter = () => {
   const render = () => {
     counterDOM.textContent = count;
   };
+  const createIncrementBtn = () => {
+    const button = document.createElement("button");
+    button.textContent = "+";
+    button.onclick = () => {
+      increment();
+      render();
+    };
+    return button;
+  };
   return {
     init() {
-      incrementBtn.addEventListener("click", () => {
-        increment();
-        render();
-      });
+      const incrementBtn = createIncrementBtn();
+      counterContainerElement.appendChild(incrementBtn);
     }
   };
 };
