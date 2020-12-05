@@ -1,4 +1,4 @@
-const counter = () => {
+const Counter = () => {
   let count = 0;
   const counterDOM = document.querySelector("#counter");
   const incrementBtn = document.querySelector("#increment");
@@ -11,7 +11,7 @@ const counter = () => {
   };
   return {
     init() {
-      counterDOM.addEventListener("click", () => {
+      incrementBtn.addEventListener("click", () => {
         increment();
         render();
       });
