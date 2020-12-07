@@ -1,13 +1,19 @@
-const Counter = () => {
+const Counter = (element) => {
+  const counterContainerElement = element;
   let count = 0;
-  const counterDOM = document.querySelector("#counter");
-  const counterContainerElement = document.querySelector("#counter-container");
+  let counter;
+
+  const createCounter = () => {
+    counter = document.createElement("div");
+    counter.textContent = count;
+    return counter;
+  }
 
   const increment = () => {
     count++;
   };
   const render = () => {
-    counterDOM.textContent = count;
+    counter.textContent = count;
   };
   const createIncrementBtn = () => {
     const button = document.createElement("button");
@@ -20,13 +26,16 @@ const Counter = () => {
   };
   return {
     init() {
+      const counter = createCounter();
       const incrementBtn = createIncrementBtn();
+      counterContainerElement.appendChild(counter);
       counterContainerElement.appendChild(incrementBtn);
     }
   };
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const counter = Counter();
+  const counterEl = document.querySelector("#counter-container");
+  const counter = Counter(counterEl);
   counter.init();
 });
