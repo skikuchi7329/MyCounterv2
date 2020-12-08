@@ -9,15 +9,27 @@ const Counter = (element) => {
     return counter;
   }
 
+  const createResetBtn = () => {
+    reset = document.createElement("button");
+    reset.textContent = "reset";
+    reset.onclick = () => {
+      resetBtn();
+    }
+    return reset;
+  }
+
   const increment = () => {
     count++;
+  };
+  const decrement = () => {
+    count--;
   };
   const render = () => {
     counter.textContent = count;
   };
-  const decrement = () => {
-    count--;
-  }
+  const resetBtn = () => {
+    count - count;
+  };
   const createIncrementBtn = () => {
     const incBtn = document.createElement("button");
     incBtn.textContent = "+";
